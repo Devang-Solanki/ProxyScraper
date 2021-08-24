@@ -22,13 +22,13 @@ Scrape proxies by using following comand
     python3 proxy.py -t https -o proxy .txt
     
     
-   *-t or --type, For chosing proxy type, Supported proxy https, http, socks4, socks5
+   * -t or --type, For chosing proxy type, Supported proxy https, http, socks4, socks5
    * -o or --output, For writing output to a file
    * -h or --help, For help
         
 # Credit
 
-[Proxy scraper and checker](https://github.com/iw4p/proxy-scraper)
+* [Proxy scraper and checker](https://github.com/iw4p/proxy-scraper)
 
 
 
