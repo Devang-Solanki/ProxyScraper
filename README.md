@@ -13,3 +13,22 @@ This tool scrape proxies from different sites and API as follow:
 Use the below comand for installing dependencies.
 
 `pip install -r requirements.txt`
+
+# Usage
+
+Scrape proxies by using following comand:
+
+        `./proxy.py -t https -o proxy .txt`
+        
+        * -t or --type, For chosing proxy type, Supported proxy https, http, socks4, socks5
+        * -o or --output, For writing output to a file
+        * -h or --help, For help
+        
+# Credit
+
+[Proxy scraper and checker](https://github.com/iw4p/proxy-scraper)
+
+
+
+
+
