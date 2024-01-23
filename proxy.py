@@ -1,11 +1,11 @@
 #!/usr/bin/python3
-import requests
 import multiprocessing
 import sys
 from bs4 import BeautifulSoup
 import os
 import argparse
 import time
+from security import safe_requests
 
 
 # Python program to print colored text and background
@@ -15,7 +15,7 @@ def prYellow(skk): print("\033[93m {}\033[00m" .format(skk))
 
 
 def proxyscrapeScraper(api_url2, typep):
-	r = requests.get(api_url2, timeout=60)
+	r = safe_requests.get(api_url2, timeout=60)
 	
 	for line in r.content.decode("utf-8").splitlines():
 		x = line.split(":")
@@ -24,7 +24,7 @@ def proxyscrapeScraper(api_url2, typep):
 		
 def proxyFromApi(api_url):
 
-	r = requests.get(api_url, timeout=60)
+	r = safe_requests.get(api_url, timeout=60)
 	json_data = r.json()
 	
 	for values in json_data['data']:
@@ -33,7 +33,7 @@ def proxyFromApi(api_url):
 	
 def https(proxy_domain):
 	
-	r = requests.get(proxy_domain, timeout=60)
+	r = safe_requests.get(proxy_domain, timeout=60)
 	soup = BeautifulSoup(r.content, 'html.parser')
 	table = soup.find('table', attrs={'class': 'table table-striped table-bordered'})		
 	
@@ -52,7 +52,7 @@ def https(proxy_domain):
 
 def socks4(proxy_domain):
 
-	r = requests.get(proxy_domain, timeout=60)
+	r = safe_requests.get(proxy_domain, timeout=60)
 	soup = BeautifulSoup(r.content, 'html.parser')
 	table = soup.find('table', attrs={'class': 'table table-striped table-bordered'})		
 	
@@ -71,7 +71,7 @@ def socks4(proxy_domain):
 			
 def proxy_list(proxy_domain, typep):
 	
-	r = requests.get(proxy_domain, timeout=60)
+	r = safe_requests.get(proxy_domain, timeout=60)
 	soup = BeautifulSoup(r.content, 'html.parser')
 	table = soup.find('table', id = "tbl")
 
